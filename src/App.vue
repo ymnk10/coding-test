@@ -1,41 +1,12 @@
-<!-- <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style> -->
-
-
-
 <template>
   <div id="app">
     <h1>触ってわかる！都道府県別の総人口推移グラフ</h1>
     <div class="prefectures-container">
       <h2>都道府県</h2>
-      <Prefectures @onAddSeries="addSeries" @onDeleteSeries="deleteSeries" />
-
+      <Prefectures @onAddSeries="addSeries" @onDeleteSeries="deleteSeries" class="prefectures" />
+      <h2>グラフ</h2>
     </div>
-    <VueHighcharts :options="options" />
+    <highcharts :options="options" />
 
   </div>
 
@@ -43,22 +14,17 @@ export default {
 
 
 <script>
-
 import { Chart } from "highcharts-vue";
-
 import Prefectures from "./components/Prefectures.vue";
-
 
 export default {
   components: {
-    VueHighcharts: Chart,
+    highcharts: Chart,
     Prefectures: Prefectures
   },
   data: function () {
     return {
-      /* Highchartsのプロパティ */
       options: {
-        /* seriesにオブジェクトを追加するとグラフに描画される */
         title: {
           text: ''
         },
@@ -85,7 +51,6 @@ export default {
     };
   },
   methods: {
-    //  seriesに追加 
     addSeries: function (id, name, population) {
       this.options.series.push({
         id: id,
@@ -94,7 +59,6 @@ export default {
       });
     },
 
-    //  seriesから削除 
     deleteSeries: function (id) {
       this.options.series = this.options.series.filter(val => val.id !== id);
     }
@@ -110,28 +74,52 @@ export default {
 
 h1 {
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
+  color: #364e96;
+  padding: 0.5em 0;
+  border-top: solid 3px #364e96;
+  border-bottom: solid 3px #364e96;
+}
+
+h2 {
+  font-size: 15px;
+  padding: 0.5em;
+  color: #494949;
+  background: #f1f8fd;
+  border-left: solid 5px #7db4e6;
 }
 
 .prefectures-container {
   margin-left: 4%;
 }
 
-h2 {
-  font-size: 17px;
+.prefectures {
+  font-size: 15px;
 }
 
-@media screen and (max-width: 425px) {
-  h1 {
-    font-size: 18px;
-  }
+@media screen and (max-width: 400px) {
 
-  h2 {
+  h1 {
     font-size: 15px;
   }
 
   .prefectures-container {
     margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+
+  h2 {
+    font-size: 13px;
+  }
+
+  .prefectures-container {
+    margin-left: 0;
+  }
+
+  .prefectures {
+    font-size: 12px;
   }
 }
 </style>
