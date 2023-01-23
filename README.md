@@ -1,4 +1,7 @@
 # yumemiexamination
+ゆめみ様フロントエンドコーディング試験課題です。
+
+`$hoge = 1`
 
 ## Project setup
 ```
