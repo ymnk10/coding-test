@@ -7,11 +7,8 @@
       <h2>グラフ</h2>
     </div>
     <highcharts :options="options" />
-
   </div>
-
 </template>
-
 
 <script>
 import { Chart } from "highcharts-vue";
@@ -66,6 +63,7 @@ export default {
 };
 
 </script>
+
 <style scoped>
 #app {
   max-width: 1024px;

@@ -13,7 +13,6 @@
 <script>
 import axios from "axios";
 
-// const ACCESS_TOKEN = process.env.VUE_APP_ACCESS_TOKEN;
 const RESAS_API_KEY = "jdDjcInWuYMNd36UIahSWIPUgRg3kbAkgF1Ntd6P";
 
 export default {
@@ -26,7 +25,6 @@ export default {
     this.initPrefectures();
   },
   methods: {
-    /* APIにアクセス */
     getData: function (path) {
       const response = axios
         .get(`https://opendata.resas-portal.go.jp/api/v1/${path}`,
@@ -37,7 +35,6 @@ export default {
       return response;
     },
 
-    /* 県の初期表示 */
     initPrefectures: async function () {
       const path = "prefectures";
       const response = await this.getData(path);
@@ -50,7 +47,6 @@ export default {
       });
     },
 
-    /* グラフを描画 */
     drawChart: async function (id, name) {
       const path = `population/composition/perYear?cityCode=-&prefCode=${id}`;
       const response = await this.getData(path);
@@ -61,13 +57,11 @@ export default {
       this.prefectures[id - 1].isChecked = true;
     },
 
-    /* グラフを削除 */
     deleteChart: function (id) {
       this.$emit("onDeleteSeries", id);
       this.prefectures[id - 1].isChecked = false;
     },
 
-    /* グラフの表示非表示を切り替え */
     checkChart: function (id, name, isChecked) {
       if (isChecked) {
         this.deleteChart(id);
@@ -78,6 +72,7 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 .prefectures-area {
   display: grid;
@@ -85,25 +80,11 @@ export default {
   font-size: 10px;
 }
 
-/* .prefectures-area>* {
-  min-width: 8%;
-  flex-basis: 9%;
-  background: #fff;
-  font-size: 10px;
-  text-align: center;
-} */
-
 .prefectures {
-  font-size: 90px;
+  font-size: 15px;
 }
 
 label {
   cursor: pointer;
 }
-
-/* @media screen and (max-width: 425px) {
-  .prefectures {
-    font-size: 8px;
-  }
-} */
 </style>
