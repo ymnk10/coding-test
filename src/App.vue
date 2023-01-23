@@ -33,12 +33,16 @@ export default {
     <div class="prefectures-container">
       <h2>都道府県</h2>
       <Prefectures @onAddSeries="addSeries" @onDeleteSeries="deleteSeries" />
+
     </div>
     <VueHighcharts :options="options" />
   </div>
 
 </template>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
+
 import { Chart } from "highcharts-vue";
 import Prefectures from "./components/Prefectures.vue";
 
