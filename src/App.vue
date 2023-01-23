@@ -36,15 +36,18 @@ export default {
 
     </div>
     <VueHighcharts :options="options" />
+
   </div>
 
 </template>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
+
 <script>
 
 import { Chart } from "highcharts-vue";
+
 import Prefectures from "./components/Prefectures.vue";
+
 
 export default {
   components: {
@@ -97,6 +100,7 @@ export default {
     }
   }
 };
+
 </script>
 <style scoped>
 #app {
