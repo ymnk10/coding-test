@@ -1,7 +1,6 @@
-# yumemiexamination
-ゆめみ様フロントエンドコーディング試験課題です。
-
-`$hoge = 1`
+# yumemiexamination 
+RESAS APIを使い、都道府県別の総人口推移グラフを表示するSPAを作りました。  
+グラフ作成にはHighchartsを使い、Netrifyでデプロイ済みです。 
 
 ## Project setup
 ```
