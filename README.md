@@ -1,4 +1,4 @@
-# yumemiexamination 
+# codingtest 
 RESAS APIを使い、都道府県別の総人口推移グラフを表示するSPAを作りました。  
 グラフ作成にはHighchartsを使い、Netrifyでデプロイ済みです。 
 
